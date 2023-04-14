@@ -12,12 +12,11 @@ class Parsing:
         service = Service(executable_path=path_driver)
         # Добавьте любые необходимые опции для вашего кода
         chrome_options = webdriver.ChromeOptions()
-        chrome_options.add_argument('--headless')
-        chrome_options.add_argument('--disable-gpu')
-        chrome_options.add_argument('--disable-features=Images')
-        chrome_options.add_argument('--disable-features=PrivacySandbox')
-        chrome_options.add_argument('--disable-features=InterestCohort')
-        chrome_options.add_argument('--disable-features=SameSiteByDefaultCookies,CookiesWithoutSameSiteMustBeSecure,InterestCohortFeaturePolicy')
+        # chrome_options.add_argument('--headless')
+        # chrome_options.add_argument('--disable-gpu')
+        # chrome_options.add_argument('--disable-features=PrivacySandbox')
+        # chrome_options.add_argument('--disable-features=InterestCohort')
+        # chrome_options.add_argument('--disable-features=SameSiteByDefaultCookies,CookiesWithoutSameSiteMustBeSecure,InterestCohortFeaturePolicy')
         # chrome_options.add_argument("--disable-features=EnableExperimentalWebPlatformFeatures")
         # Запуск драйвера Chrome
         self.driver = webdriver.Chrome(service=service, options=chrome_options)
@@ -29,7 +28,7 @@ class Parsing:
         # Дайте некоторое время для загрузки динамического контента
         self.driver.implicitly_wait(4)
         # Получаем исходный код страницы
-        time.sleep(10)
+        time.sleep(7)
         page_source = self.driver.page_source
         return page_source
 
@@ -90,24 +89,5 @@ def main():
         parsing.driver.quit()
         time.sleep(1)
 
-
 if __name__ == '__main__':
     main()
-
-
-
-
-# Парсинг страницы с помощью BeautifulSoup
-
-
-# Выводим список ссылок
-# Извлекаем информацию с помощью селекторов CSS или тегов
-# example_data = soup.select(".example-class")
-
-# for data in example_data:
-#     print(data.text)
-
-
-# print(page_source)
-
-# Ваш код для парсинга и обработки данных здесь
